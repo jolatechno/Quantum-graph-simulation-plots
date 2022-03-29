@@ -91,9 +91,9 @@ random_list /= np.sum(random_list)
 plotting the distribution and occurences for different proportions of graph selected :
 """
 
-fig = plt.figure(figsize=(9, 6), constrained_layout=True)
+fig = plt.figure(figsize=(10, 6), constrained_layout=True)
 plt.rc('axes', titlesize=16)
-plt.rc('figure', titlesize=18) 
+plt.rc('figure', titlesize=19) 
 plt.rc('legend', fontsize=12)
 ax = fig.add_subplot(1, 1, 1)
 
@@ -130,7 +130,7 @@ ax.text(1.5*n_graph, y_max*.75, "linear distributions", **args)
 ax.text(4.5*n_graph, y_max*.75, "exponential distributions", **args)
 ax.text(7.5*n_graph, y_max*.75, "inverse polynomial distribution", **args)
 
-fig.legend()
+fig.legend(bbox_to_anchor=(1, 0.95), loc='upper right', borderaxespad=0)
 
 # saving the figure
 fig.suptitle(f'random repartition and occurences')
