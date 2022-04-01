@@ -101,15 +101,15 @@ ax = fig.add_subplot(1, 1, 1)
 
 
 # plotting occurences for different proportions of graph selected
-for proportion in [.2, .1, .01]:
+for proportion in [.2]:
 	n_select = int(len(random_list) * proportion)
-	ax.plot(smooth(generate(selector_1, random_list, n_select)), label=f"log(log()), { proportion * 100 }% selected", linewidth=2)
+	ax.plot(smooth(generate(selector_1, random_list, n_select)), label=f"normalized occurences\n using probabilistic ranking\n for { proportion * 100 }% selection", linewidth=5)
 	#ax1.plot(smooth(generate(selector_2, random_list)), label="histograms")
 
 
 
 # plotting the initial ditribution
-ax.plot(random_list, "r--", label="base distribution", linewidth=3)
+ax.plot(random_list, "r--", label="probability distribution", linewidth=3)
 
 
 
@@ -128,15 +128,15 @@ legend.get_frame().set_facecolor((1, 1, 1, 1)) # R G B transparency
 
 
 # setting up the frame
-ax.set_ylabel("probability")
+ax.set_ylabel("Probability/occurences")
 ax.set_yticks([])
 
 _, x_max = ax.get_xlim()
 ax.set_xticks([3*n_graph/2, (3*n_graph + 6*n_graph)/2, (6*n_graph + x_max)/2], ["linear distributions", "exponential distributions", "inverse polynomial distribution"])
 
 # adding text to name different sections
-y_max = ax.get_ylim()[1]
-"""args = {
+"""y_max = ax.get_ylim()[1]
+args = {
 	"horizontalalignment" : 'center',
 	"verticalalignment" : 'center',
 	"bbox" : {
@@ -151,5 +151,5 @@ ax.text(7.5*n_graph, y_max*.75, "inverse polynomial distribution", **args)"""
 
 
 # saving the figure
-fig.suptitle(f'random repartition and occurences')
+fig.suptitle(f'random distribution and corresponding occurences')
 fig.savefig("repartition.jpg")
