@@ -103,13 +103,13 @@ ax = fig.add_subplot(1, 1, 1)
 # plotting occurences for different proportions of graph selected
 for proportion in [.2]:
 	n_select = int(len(random_list) * proportion)
-	ax.plot(smooth(generate(selector_1, random_list, n_select)), label=f"normalized occurences\n using probabilistic ranking\n for { proportion * 100 }% selection", linewidth=5)
+	ax.plot(smooth(generate(selector_1, random_list, n_select)), label=f"normalized occurences\n using probabilistic ranking\n for { proportion * 100 }% of objects selection", linewidth=5)
 	#ax1.plot(smooth(generate(selector_2, random_list)), label="histograms")
 
 
 
 # plotting the initial ditribution
-ax.plot(random_list, "r--", label="probability distribution", linewidth=3)
+ax.plot(random_list, "r--", label="objects probability distribution", linewidth=3)
 
 
 
