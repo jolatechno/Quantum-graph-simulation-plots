@@ -25,7 +25,7 @@ with open(filename, "r") as file:
 
 fig, ax1 = plt.subplots(layout='constrained', figsize=(5, 5))
 
-ax1.set_title(f"Weak scaling results for \"{ rule }\"")
+ax1.set_title(f"Accuracy scaling for \"{ rule }\"")
 ax1.set_xlabel("Number of cores")
 ax1.set_ylabel("Accuracy")
 
