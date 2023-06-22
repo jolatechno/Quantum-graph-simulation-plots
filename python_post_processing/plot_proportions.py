@@ -38,7 +38,7 @@ ax.set_title(f"Step execution time proportion for \"{ rule }\"")
 ax.set_xlabel("Number of cores")
 ax.set_ylabel("Execution time proportion")
 ax.set_yscale("log")
-ax.set_grid(axis='y', which="both")
+ax.grid(axis='y', which="both")
 ax.set_ylim([min_proportion/1.2, 3])
 
 
