@@ -38,14 +38,14 @@ ax.set_title(f"Step execution time proportion for \"{ rule }\"")
 ax.set_xlabel("Number of cores")
 ax.set_ylabel("Execution time proportion")
 ax.set_yscale("log")
-plt.grid(axis='y', which="both")
+ax.set_grid(axis='y', which="both")
 ax.set_ylim([min_proportion/1.2, 3])
 
 
 for key, color in zip(ordered_keys, colors):
-	plt.plot(num_core[0], proportions[key][0], c=color, linestyle="solid", label=key + " proportion")
+	ax.plot(num_core[0], proportions[key][0], c=color, linestyle="solid", label=key + " proportion")
 	for num_core_, scaling_ in zip(num_core[1:], proportions[key][1:]):
-		plt.plot(num_core_, scaling_, c=color, linestyle="solid", label="_nolabel_")
+		ax.plot(num_core_, scaling_, c=color, linestyle="solid", label="_nolabel_")
 
 
 fig.legend(fontsize="6", bbox_to_anchor=(0.7, 0.85, 0.29, 0.1))

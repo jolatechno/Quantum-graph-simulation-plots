@@ -50,13 +50,13 @@ ax.set_ylabel("Relative execution time scaling")
 x = np.linspace(min_num_core, max_num_core, 10, endpoint=True)
 y = np.linspace(1, max_num_core/min_num_core, 10, endpoint=True)
 
-plt.plot(x, y, c=color_ideal, linestyle="dashed", label="Ideal scaling")
+ax.plot(x, y, c=color_ideal, linestyle="dashed", label="Ideal scaling")
 
-plt.plot(num_core[0], scaling[0], c=color_data, linestyle="solid", label="Execution time scaling")
-plt.plot(num_core[0][0:1], scaling[0][0:1], c=color_data, marker="x", label="Reference point for scaling")
+ax.plot(num_core[0], scaling[0], c=color_data, linestyle="solid", label="Execution time scaling")
+ax.plot(num_core[0][0:1], scaling[0][0:1], c=color_data, marker="x", label="Reference point for scaling")
 for num_core_, scaling_ in zip(num_core[1:], scaling[1:]):
-	plt.plot(num_core_, scaling_, c=color_data, linestyle="solid", label="_nolabel_")
-	plt.plot(num_core_[0:1], scaling_[0:1], c=color_data, marker="x", label="_nolabel_")
+	ax.plot(num_core_, scaling_, c=color_data, linestyle="solid", label="_nolabel_")
+	ax.plot(num_core_[0:1], scaling_[0:1], c=color_data, marker="x", label="_nolabel_")
 
 
 fig.legend(fontsize="9", bbox_to_anchor=(0.7, 0.15, 0.29, 0.1))
