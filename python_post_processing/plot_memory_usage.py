@@ -5,7 +5,12 @@ import matplotlib.pyplot as plt
 import numpy as np
 import sys
 
+output_base = "../plots/"
+output_filename = "memory_usage.png"
+
 filename = sys.argv[1]
+if len(sys.argv) > 2:
+	output_filename = sys.argv[2]
 
 color_min_mem  = "C0"
 color_avg_mem  = "C1"
@@ -36,4 +41,4 @@ ax.plot(json_dict["avg_memory_usage"][0], c=color_avg_mem, linewidth=1.5, linest
 ax.plot(json_dict["max_memory_usage"][0], c=color_max_mem, linewidth=0.8, linestyle="solid", label="Max memory usage")
 
 fig.legend(fontsize="7", bbox_to_anchor=(0.7, 0.14, 0.29, 0.1))
-fig.savefig("../plots/memory_usage.png", dpi=200)
+fig.savefig(output_base + output_filename, dpi=200)

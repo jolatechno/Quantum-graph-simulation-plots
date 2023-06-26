@@ -5,7 +5,12 @@ import matplotlib.pyplot as plt
 import numpy as np
 import sys
 
+output_base = "../plots/"
+output_filename = "weak_scaling.png"
+
 filename = sys.argv[1]
+if len(sys.argv) > 2:
+	output_filename = sys.argv[2]
 
 color_ideal          = "red"
 color_scaling        = "C0"
@@ -70,4 +75,4 @@ ax1.plot(num_core, scaling_symbolic_t, c=color_scaling_symb_t, linestyle="dashed
 
 
 fig.legend(fontsize="5", bbox_to_anchor=(0.23, 0.85, 0.29, 0.1))
-fig.savefig("../plots/weak_scaling.png", dpi=200)
+fig.savefig(output_base + output_filename, dpi=200)

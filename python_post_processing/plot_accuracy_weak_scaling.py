@@ -5,7 +5,12 @@ import matplotlib.pyplot as plt
 import numpy as np
 import sys
 
+output_base = "../plots/"
+output_filename = "accuracy.png"
+
 filename = sys.argv[1]
+if len(sys.argv) > 2:
+	output_filename = sys.argv[2]
 
 color_num_object   = "C0"
 color_num_symbolic = "C1"
@@ -40,4 +45,4 @@ ax1.set_ylim([np.min(json_dict["accuracy"]) - 0.1, np.max(json_dict["accuracy"])
 ax1.plot(num_core, json_dict["accuracy"], c=color_accuracy, linestyle="solid", label="Accuracy")
 
 fig.legend(fontsize="7", bbox_to_anchor=(0.23, 0.8, 0.29, 0.1))
-fig.savefig("../plots/accuracy.png", dpi=200)
+fig.savefig(output_base + output_filename, dpi=200)

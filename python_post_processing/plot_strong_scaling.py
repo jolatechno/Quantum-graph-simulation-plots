@@ -5,7 +5,17 @@ import matplotlib.pyplot as plt
 import numpy as np
 import sys
 
-files = sys.argv[1:]
+output_base = "../plots/"
+output_filename = "proportions.png"
+output_hint = "output="
+
+files = []
+for filename in sys.argv[1:]:
+	if filename[:len(output_hint)] == output_hint:
+		output_filename = filename[len(output_hint):]
+		print(f"output is \"{ output_filename }\"")
+	else:
+		files.append(filename)
 
 color_ideal = "red"
 color_data  = "C0"
@@ -60,4 +70,4 @@ for num_core_, scaling_ in zip(num_core[1:], scaling[1:]):
 
 
 fig.legend(fontsize="9", bbox_to_anchor=(0.7, 0.15, 0.29, 0.1))
-fig.savefig("../plots/strong_scaling.png", dpi=200)
+fig.savefig(output_base + output_filename, dpi=200)

@@ -5,7 +5,17 @@ import matplotlib.pyplot as plt
 import numpy as np
 import sys
 
-files = sys.argv[1:]
+output_base = "../plots/"
+output_filename = "proportions.png"
+output_hint = "output="
+
+files = []
+for filename in sys.argv[1:]:
+	if filename[:len(output_hint)] == output_hint:
+		output_filename = filename[len(output_hint):]
+		print(f"output is \"{ output_filename }\"")
+	else:
+		files.append(filename)
 
 ordered_keys = ["pre-symbolic-iteration", "symbolic-iteration", "collisions", "pre-object-generation", "object-generation", "communication"]
 
@@ -49,4 +59,4 @@ for key, color in zip(ordered_keys, colors):
 
 
 fig.legend(fontsize="6", bbox_to_anchor=(0.7, 0.85, 0.29, 0.1))
-fig.savefig("../plots/proportions.png", dpi=200)
+fig.savefig(output_base + output_filename, dpi=200)
